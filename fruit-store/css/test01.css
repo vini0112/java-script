@@ -1,0 +1,171 @@
+
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 900px;
+    max-width: 90vw;
+    
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    transition: 0.7s ease-in-out;
+}
+header{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid gray;
+    margin-bottom: 2rem;
+}
+.openSideBar{
+    cursor: pointer;
+}
+
+.estruturaList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    
+    padding: 10px;
+    justify-content: center;
+    justify-items: center;
+    gap: 1rem;
+}
+.item{
+    border: 2px solid black;
+    width: 270px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+
+.btn-cart{
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    background-color: aquamarine;
+    color: black;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    cursor: pointer;
+
+}
+
+/* side bar */
+.estrutura-side{
+     display: none;
+}
+.sideBar{
+    width: 280px;
+    background-color: rgb(230, 136, 136);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.header-side{
+    width: 100%;
+    height: 55px;
+    display: flex;
+
+}
+
+/* side bar cart */
+.card{
+    position: fixed;
+    top: 0;
+    left:  100%;
+    width: 300px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: .7s ease-in-out;
+}
+
+.card h1{
+    color: #E8BC0E;
+    font-weight: 100;
+    padding-left: 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    
+}
+.card .checkout{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card .checkout div{
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card .checkout div:nth-child(2){
+    background-color: #1C1F25;
+    color: white;
+
+}
+
+/* quando cart clicked da um scroll no cart e no container */
+.active .card{
+    left: calc(100% - 300px);
+}
+
+.active .container{
+    transform: translateX(-200px);
+}
+
+.listCart{
+    list-style: none;
+
+}
+.cartLine{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartLine img{
+    width: 60px;
+}
+.preco{
+    font-size: 1.1rem;
+    
+}
+
+.qtd{
+    margin-right: 20px;
+    font-size: 1.3rem;
+}
+
+.qtd i {
+    font-size: 1.1rem;
+}
+
+
+
+
