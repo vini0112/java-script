@@ -5,15 +5,13 @@ const produtos = [
     {
         id: 0,
         nome: "Maçã", 
-        preco: 9.90, 
-        medida: 'Kg',
+        medida: "Uni.",
         precoUni: 1.23,
         image: `photos/frutas/maca.png`},
 
     {
         id: 1,
         nome: "Banana", 
-        preco: 5.00, 
         medida:  'Penca',
         precoUni: 5.00,
         image: 'photos/frutas/bananas.png'},
@@ -21,16 +19,14 @@ const produtos = [
     {
 
         id: 2,
-        nome: "Pera", 
-        preco: 25.00, 
-        medida:  'Kg',
+        nome: "Pera",  
+        medida:  'Uni.',
         precoUni: 2.77,
         image: 'photos/frutas/pera.png'},
 
     {
         id: 3,
         nome: "Abacaxi", 
-        preco: 5.00, 
         medida: 'Uni.' ,
         precoUni: 5.00,
         image: 'photos/frutas/abacaxi.png'},
@@ -38,6 +34,7 @@ const produtos = [
 ]
 
 let listCards = []
+
 
 let body  = document.querySelector('body')
 
@@ -51,6 +48,11 @@ let estruturaSide  = document.querySelector('.estrutura-side')
 
 let closeShopping  = document.querySelector('.closeShopping')
 let openSideBar  = document.querySelector('.openSideBar')
+
+
+
+
+
 
 // fechar e abrir sidebar dos carts 
 openSideBar.addEventListener('click', () =>{
@@ -71,7 +73,7 @@ function showingCards(){
         newItem.innerHTML = `
         <div class="item-title"><img src="${value.image}" alt=""></div>
 
-        <div class="item-preco">R$: ${value.precoUni.toFixed(2).replace('.', ',')}</div>
+        <div class="preco">R$: ${value.precoUni.toFixed(2).replace('.', ',')} ${value.medida}</div>
 
         <button class="btn-cart" onclick="addCart(${key})">Add to Cart</button>
         
@@ -81,35 +83,56 @@ function showingCards(){
     })
 }
 
+// calling the function
 showingCards()
 
-// pegando a key dos cards
-function addCart(key){
+
+
+// getting the key btn
+function addCart(key, quantity){
+
+        // if listCards iqual to null define quantity 1 
     if(listCards[key] == null){
-        listCards[key] = produtos[key]
+        listCards[key] = JSON.parse(JSON.stringify(produtos[key]))
         listCards[key].quantity = 1
+        quantity = listCards[key].quantity
         
     }
+        // counting by the click
+    else{
+        listCards[key].quantity += 1
+        quantity = listCards[key].quantity
 
-    // console.log(listCards[key])
+        listCards[key].precoUni = quantity * produtos[key].precoUni
+
+        // console.log(quantity)
+        // console.log(listCards[key].quantity)
+    }
+
+
     reloadCard()
 }
 
 
+
+// putting things inside sidebar cart 
 function reloadCard(){
-    listCards.innerHTML = ''
+    listCart.innerHTML = ''
     let count = 0
     let totalPrice = 0
 
+    
     listCards.forEach((value, key) =>{
-        totalPrice = totalPrice + value.precoUni
-        count = count + value.quantity
+        
+        totalPrice += value.precoUni
+        count += value.quantity
 
+        // if value diferent of null, creat a li inside sidebar cart
         if(value != null){
-        let newLine = document.createElement('li')
-        newLine.classList.add('cartLine')
+            let newLine = document.createElement('li')
+            newLine.classList.add('cartLine')
 
-        newLine.innerHTML = `
+            newLine.innerHTML = `
              
             <img src="${value.image}" alt="">
             <span class="preco">R$: ${value.precoUni.toFixed(2).replace('.', ',')}</span>
@@ -122,18 +145,20 @@ function reloadCard(){
              </span>
             
         `
-        listCart.appendChild(newLine)
-
-        
+            listCart.appendChild(newLine)
+            
     }
+    
+
 
     })
 
-    total.innerHTML = totalPrice
+    total.innerHTML = totalPrice.toFixed(2).replace('.', ',')
     totalItem.innerHTML = count
 }
 
 
+// little validation 
 function changeQtd(key, quantity){
     if(quantity == 0){
         delete listCards[key]
@@ -141,6 +166,9 @@ function changeQtd(key, quantity){
         listCards[key].quantity = quantity
         listCards[key].precoUni = quantity * produtos[key].precoUni
     }
-    reloadCard()
+   reloadCard()
+   
 }
-console.log(listCards)
+
+
+
