@@ -6,6 +6,14 @@
     box-sizing: border-box;
 }
 
+:root{
+    --cor1:  #defaea;
+    --cor2: #91e4ca;
+    --cor3: #0c6a0c;
+}
+body{
+    background-color: rgb(226, 244, 237);
+}
 
 .container{
     width: 1200px;
@@ -13,21 +21,110 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    transition: 0.7s ease-in-out;
+    transition: .5s ease-in-out;
+    background-color: var(--cor1);
 }
 
 header{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 18vh;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid gray;
+    background-color: var(--cor2);
+    
+}
+.logo{
+    width: 170px;
+    height: 100%;
+}
+
+.listLinks{
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    
+}
+.listLinks li a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
+}
+
+
+.active{
+    color: rgb(2, 87, 2) !important;
+    text-shadow: 3px 3px 4px white;
+}
+
+
+/* infos part */
+
+.infos{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+.part-info{
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+    justify-content: center;
+    
+}
+.part-info .title-info{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(22, 104, 22);
+    margin-bottom: 1rem;
+    text-align: start;
+    margin-left: 20px;
+}
+
+.part-info h2{
+    font-size: 2.5rem;
+    text-align: center;
     margin-bottom: 2rem;
 }
+.part-info .warning{
+    color: #0c6a0c;
+    
+}
+
+.part-info p{
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.part-info button{
+    width: 180px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight:bold;
+    text-align: center;
+    margin-left: 60%;
+    cursor: pointer;
+}
+
+.part-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bowlFruit{
+    width: 400px;
+    height: 400px;
+}
+
+/* cards */
 .cart-part{
     position: relative;
     text-align: right;
+    margin-right: 15px;
 }
 .openSideBar{
     cursor: pointer;
@@ -70,6 +167,7 @@ header{
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
+    
 }
 
 
@@ -92,13 +190,15 @@ header{
     top: 0;
     left:  100%;
     width: 300px;
-    background-color: #453E3B;
+    background-color: var(--cor2);
     height: 100vh;
     transition: .7s ease-in-out;
 }
 
 .card h1{
-    color: #E8BC0E;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 2.2rem;
     font-weight: 100;
     padding-left: 20px;
     height: 80px;
@@ -115,7 +215,7 @@ header{
 }
 
 .card .checkout div{
-    background-color: #E8BC0E;
+    background-color: var(--cor3);
     width: 100%;
     height: 70px;
     display: flex;
@@ -123,6 +223,9 @@ header{
     align-items: center;
     font-weight: bold;
     cursor: pointer;
+    color: white;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 1px black;
 }
 
 .card .checkout div:nth-child(2){
@@ -149,15 +252,15 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: black;
 }
 
 .cartLine img{
     width: 60px;
 }
 .preco{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    
 }
 
 .qtd{
