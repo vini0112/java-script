@@ -16,8 +16,9 @@ body{
 }
 
 .container{
-    width: 1200px;
-    max-width: 90vw;
+    /* width: 1200px;*/
+    /* max-width: 80vw;  */
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -31,7 +32,7 @@ header{
     height: 18vh;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--cor2);
+    background-color: #d7f0ea;
     
 }
 .logo{
@@ -78,8 +79,10 @@ header{
     color: rgb(22, 104, 22);
     margin-bottom: 1rem;
     text-align: start;
-    margin-left: 20px;
+    margin-left: 40px;
+    position: relative;
 }
+
 
 .part-info h2{
     font-size: 2.5rem;
@@ -113,12 +116,92 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .bowlFruit{
     width: 400px;
     height: 400px;
+    filter: drop-shadow(5px 5px 4px black);
 }
+
+.strawberryIcon{
+    width: 160px;
+    position: absolute;
+    top: 70%;
+    right: 65%;
+    filter: drop-shadow(5px 3px 1px black);
+}
+
+.pineapple{
+    width: 110px;
+    position: absolute;
+    top: 10%;
+    right: 14%;
+    filter: drop-shadow(2px 3px 5px black);
+}
+
+.circle{
+    
+    background-color: black;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    filter: drop-shadow(2px 2px 4px black);
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.text1{
+    font-size: 1rem;
+    font-weight: 700;
+    
+}
+.text2{
+    font-size: 1.4rem;
+    font-weight: bolder;
+    
+}
+
+.cloud{
+    background-color: #7d918b98;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    max-width: 200px;
+    width: 100%;
+    height: 60px;
+    border-radius: 20px;
+
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.text3{
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+.text4{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 
 /* cards */
 .cart-part{
