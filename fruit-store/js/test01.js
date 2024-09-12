@@ -171,4 +171,13 @@ function changeQtd(key, quantity){
 }
 
 
+// OPEN MOBILE SIDE BAR 
+let rightSideBar = document.querySelector('.rightSideBar')
+let btnMobileSide = document.querySelector('.iconBar')
+
+btnMobileSide.addEventListener('click', () =>{
+    rightSideBar.classList.toggle('activeSide')
+})
+
+
 
