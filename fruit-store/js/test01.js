@@ -29,7 +29,15 @@ const produtos = [
         nome: "Abacaxi", 
         medida: 'Uni.' ,
         precoUni: 5.00,
-        image: 'photos/frutas/abacaxi.png'},
+        image: 'photos/frutas/abacaxi.png'
+    },
+    {
+        id: 4,
+        nome: "Morango", 
+        medida: 'Uni.' ,
+        precoUni: 1.50,
+        image: 'photos/frutas/morango.png'
+    },
 
 ]
 
@@ -48,7 +56,7 @@ let estruturaSide  = document.querySelector('.estrutura-side')
 
 let closeShopping  = document.querySelector('.closeShopping')
 let openSideBar  = document.querySelector('.openSideBar')
-
+let card = document.querySelector('.card')
 
 
 
@@ -56,10 +64,16 @@ let openSideBar  = document.querySelector('.openSideBar')
 
 // fechar e abrir sidebar dos carts 
 openSideBar.addEventListener('click', () =>{
+    // body.classList.add('active')
+
+    leftSideBar.classList.remove('activeSide')
+
     body.classList.toggle(`active`)
+    
 })
 
 closeShopping.addEventListener('click', () =>{
+    // card.style.display='none'
     body.classList.remove(`active`)
 })
 
@@ -172,11 +186,19 @@ function changeQtd(key, quantity){
 
 
 // OPEN MOBILE SIDE BAR 
-let rightSideBar = document.querySelector('.rightSideBar')
-let btnMobileSide = document.querySelector('.iconBar')
+let leftSideBar = document.querySelector('.leftSideBar')
+let btnMobileSide = document.querySelector('#iconBar')
+let closeMark = document.querySelector('#closeMark')
+
 
 btnMobileSide.addEventListener('click', () =>{
-    rightSideBar.classList.toggle('activeSide')
+
+    body.classList.remove(`active`)
+
+    leftSideBar.classList.toggle('activeSide')
+    
+
+    
 })
 
 
