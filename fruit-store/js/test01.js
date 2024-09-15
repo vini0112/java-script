@@ -147,16 +147,16 @@ function reloadCard(){
             newLine.classList.add('cartLine')
 
             newLine.innerHTML = `
-             
+
             <img src="${value.image}" alt="">
             <span class="preco">R$: ${value.precoUni.toFixed(2).replace('.', ',')}</span>
             <span class="qtd">
 
-             <i class="fa-solid fa-angle-left" onclick="changeQtd(${key}, ${value.quantity - 1})"></i>
-             ${value.quantity}
-             <i class="fa-solid fa-angle-right" onclick="changeQtd(${key}, ${value.quantity + 1})"></i>
+            <i class="fa-solid fa-angle-left" onclick="changeQtd(${key}, ${value.quantity - 1})"></i>
+            <span class="qtdNumbCart">${value.quantity}</span>
+            <i class="fa-solid fa-angle-right" onclick="changeQtd(${key}, ${value.quantity + 1})"></i>
 
-             </span>
+            </span>
             
         `
             listCart.appendChild(newLine)
