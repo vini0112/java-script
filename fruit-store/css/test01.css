@@ -120,7 +120,7 @@ header{
 .infos{
     display: grid;
     grid-template-columns: repeat(2, 50%);
-
+    
 }
 .part-info{
     display: flex;
